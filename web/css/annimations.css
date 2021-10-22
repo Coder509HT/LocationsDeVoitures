@@ -1,0 +1,70 @@
+@keyframes change-bacground {
+	5.8% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-0.jpg") no-repeat center center/cover;
+	}
+	11.6% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-1.jpg") no-repeat center center/cover;
+	}
+	17.4% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-2.jpg") no-repeat center center/cover;
+	}
+	23.2% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-3.jpg") no-repeat center center/cover;
+	}
+	29% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-4.jpg") no-repeat center center/cover;
+	}
+	34.8% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-5.jpg") no-repeat center center/cover;
+	}
+	40.6% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-6.jpg") no-repeat center center/cover;
+	}
+	46.4% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-7.jpg") no-repeat center center/cover;
+	}
+	52.2% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-8.jpg") no-repeat center center/cover;
+	}
+	58% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-9.jpg") no-repeat center center/cover;
+	}
+	63.8% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-10.jpg") no-repeat center center/cover;
+	}
+	69.6% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-11.jpg") no-repeat center center/cover;
+	}
+	75.4% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-12.jpg") no-repeat center center/cover;
+	}
+	81.2% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-13.jpg") no-repeat center center/cover;
+	}
+	87% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-14.jpg") no-repeat center center/cover;
+	}
+	92.8% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-15.jpg") no-repeat center center/cover;
+	}
+	98.6% {
+		background: linear-gradient(rgba(0, 0, 0, 0.3), hsla(332, 100%, 10%, 0.3)),
+			url("./images/bg-16.jpg") no-repeat center center/cover;
+	}
+}

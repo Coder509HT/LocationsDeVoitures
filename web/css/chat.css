@@ -1,0 +1,122 @@
+@import url("./styles.css");
+@import url("./form.css");
+
+.chat-section{
+    display: flex;
+    flex: 1;
+    background-color: hsl(335, 100%, 11%);
+}
+
+.users-list{
+    min-width: 20rem;
+    background-color: hsl(0, 0%, 2%);
+}
+
+.messages-section{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.messages-form{
+    display: flex;
+    justify-content: center;
+    padding: .3rem 1rem;
+    background-color: hsl(0, 0%, 2%);
+}
+
+.messages-form *{
+    margin: 0;
+    color: hsl(0, 0%, 100%);
+}
+
+.messages-form input[type="text"]{
+    width: 50vw;
+    outline: none;
+    border: none;
+    padding: .1rem .5rem;
+    background-color: hsl(335, 100%, 11%);
+}
+
+.messages-form input[type="submit"]{
+    border-radius: 0 1rem 1rem 0;
+    -webkit-border-radius: 0 1rem 1rem 0;
+    -moz-border-radius: 0 1rem 1rem 0;
+    -ms-border-radius: 0 1rem 1rem 0;
+    -o-border-radius: 0 1rem 1rem 0;
+}
+
+.message-box{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: hsl(335, 100%, 11%);
+}
+
+.user{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 2.5rem;
+    border-top: .01rem solid hsla(0, 0%, 100%, 0.029);
+    background-color: hsl(0, 0%, 0%);
+}
+
+.user *{
+    margin: 0 .5rem;
+    color: hsl(0, 0%, 100%);
+}
+
+.user .logo-name{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(0, 0%, 0%);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.user .username{
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    font-size: 1rem;
+}
+
+.status{
+    font-size: .7rem;
+}
+
+.status-light{
+    width: .5rem;
+    height: .5rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+
+.status-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+}
+
+.enligne {
+    background-color: lime;
+}
+.horsligne {
+    background-color: #d5d5d5;
+}

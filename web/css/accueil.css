@@ -1,0 +1,65 @@
+@import url("./styles.css");
+
+/* WELCOME SECTION */
+.welcome-section {
+	display: flex;
+	flex-wrap: wrap;
+	width: 100vw;
+	min-height: 90vh;
+	background: linear-gradient(hsl(0, 0%, 0%), hsl(332, 100%, 10%));
+}
+
+@media only screen and (max-width: 820px) {
+	.welcome-section {
+		flex-direction: column;
+	}
+}
+
+.welcome-title-section {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.welcome-title-section > * {
+	margin: 0 0.2rem;
+}
+
+.welcome-text-section {
+	width: 40rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-self: center;
+	padding: 1rem 3rem;
+	margin: 3rem 1rem;
+}
+
+.welcome-text-section .title {
+	font-size: 2.5rem;
+	line-height: 1;
+}
+.welcome-text-section .text {
+	text-align: justify;
+	margin: 1.5rem 0;
+	color: hsl(0, 0%, 70%);
+}
+.welcome-text-section .btn {
+	width: 10rem;
+	margin: 0.5rem 0;
+	color: rgb(255, 255, 255);
+	background-color: hsl(0, 0%, 0%);
+}
+
+.welcome-image-section {
+	flex: 1;
+	animation: change-bacground 100s 3s ease-in-out infinite;
+	-webkit-animation: change-bacground 100s 0s ease-in-out infinite;
+}
+
+/* SHOW CASES */
+.show-cases {
+	width: 100vw;
+	min-height: 100vh;
+	background-color: hsla(0, 0%, 0%);
+}

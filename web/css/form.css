@@ -1,0 +1,90 @@
+@import url("./styles.css");
+
+.form-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: hsl(335, 100%, 11%);
+}
+
+.form-section > h1{
+    color: hsl(48, 100%, 93%);
+    margin: 2rem auto;
+}
+
+.form-section form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 23rem;
+    background-color: hsl(0, 0%, 93%);
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.form-section .form-login{
+    min-height: 23rem;
+}
+.form-section .form-signup{
+    min-height: 25rem;
+}
+
+.input-div{
+    display: flex;
+    flex-direction: column;
+    padding: .1rem 1.5rem;
+    width: 100%;
+}
+
+.input-div > label{
+    margin: .5rem auto;
+}
+
+.input-div > input{
+    padding: .3rem 1rem;
+    outline: none;
+    border: none;
+    color: hsl(0, 0%, 0%);
+}
+
+.input-div .response-msg{
+    width: 100%;
+    margin: .5rem auto;
+    text-align: center;
+    font-size: .8rem;
+}
+
+.error{
+    color: hsl(0, 100%, 50%);
+}
+
+.success{
+    color: hsl(120, 100%, 25%);
+}
+
+form input[type=submit]{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(335, 100%, 11%);
+    color: hsl(48, 100%, 93%);
+    padding: .3rem 1rem;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+form a{
+    font-size: .9rem;
+}
