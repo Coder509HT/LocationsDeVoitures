@@ -5,7 +5,7 @@ class UsersModel extends Database
     /* GET DATA */
     protected function getUsers()
     {
-        $sql = 'SELECT * FROM utilisateurs';
+        $sql = 'SELECT * FROM utilisateurs ORDER BY lastLogin ASC';
         $stmt = $this->getConnection()->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
@@ -51,11 +51,11 @@ class UsersModel extends Database
         $stmt->execute(['pseudo' => $pseudo, 'motDePasse' => $motDePasse, 'id' => $id]);
     }
 
-    protected function setUserStatus($status, $id)
+    protected function setUserConnectInfos($status, $lastLogin, $id)
     {
-        $sql = 'UPDATE utilisateurs SET login = :status WHERE id = :id';
+        $sql = 'UPDATE utilisateurs SET login = :status, lastLogin = :lastLogin WHERE id = :id';
         $stmt = $this->getConnection()->prepare($sql);
-        $stmt->execute(['status' => $status, 'id' => $id]);
+        $stmt->execute(['status' => $status, 'lastLogin' => $lastLogin, 'id' => $id]);
     }
 
     protected function deleteUser($id)

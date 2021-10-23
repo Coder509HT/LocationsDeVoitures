@@ -27,6 +27,9 @@ $currentPage = $urlLinkTable[$lastIndex];
     if ($currentPage === 'chat.php') {
     ?>
         <form action="../../src/servers/logout.php" method="POST">
+            <p>
+                <?= ucfirst($_SESSION['user']->pseudo); ?>
+            </p>
             <input type="submit" name="logout" value="Deconnexion">
         </form>
     <?php

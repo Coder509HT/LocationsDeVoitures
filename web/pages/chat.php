@@ -9,8 +9,12 @@ if (!isset($_SESSION['user'])) {
 }
 
 $usersView = new UsersView();
+$messagesView = new MessagesView();
 
 $users = $usersView->usersList();
+$messages = $messagesView->messagesListe();
+
+$currentUser = $_SESSION['user'];
 
 ?>
 
@@ -29,35 +33,66 @@ $users = $usersView->usersList();
     <?php require_once('./header.php'); ?>
 
     <section class="chat-section">
-
-        <section class="users-list">
-            <?php
-            foreach ($users as $user) {
-                $status = ($user->login) ? "En ligne" : "Hors ligne";
-                $statusLight = ($user->login) ? "enligne" : "horsligne";
-            ?>
-                <section class="user">
-                    <p class="logo-name"><?= strtoupper(substr($user->pseudo, 0, 1)); ?></p>
-                    <p class="username"><?= ucfirst($user->pseudo); ?></p>
-                    <section class="status-section">
-                        <p class="status"><?= $status; ?></p>
-                        <div class="status-light <?= $statusLight; ?>"></div>
-                    </section>
-                </section>
-            <?php
-            }
-            ?>
-        </section>
-
-        <section class="messages-section">
-            <section class="message-box">
-
+        <section class="chat-user-section">
+            <!-- USSERS -->
+            <section class="users-list">
+                <?php
+                foreach ($users as $user) {
+                    if ($user->id !== $currentUser->id) {
+                        $status = ($user->login) ? "en ligne" : $user->lastLogin;
+                        $statusLight = ($user->login) ? "enligne" : "horsligne";
+                ?>
+                        <section class="user">
+                            <p class="logo-name"><?= strtoupper(substr($user->pseudo, 0, 1)); ?></p>
+                            <div class="username-section">
+                                <p class="username"><?= ucfirst($user->pseudo); ?></p>
+                                <section class="status-section">
+                                    <p class="status"><?= $status; ?></p>
+                                    <div class="status-light <?= $statusLight; ?>"></div>
+                                </section>
+                            </div>
+                        </section>
+                <?php
+                    }
+                }
+                ?>
             </section>
-            <form class="messages-form">
-                <input type="text" name="text" id="text">
-                <input type="submit" name="envoye" value="Envoye">
-            </form>
+
+            <!-- MESSAGES -->
+            <section class="messages-section">
+                <section class="message-box">
+                    <?php
+                    if (count($messages) == 0) {
+                    ?>
+                        <h1 class="message-infos">La boîte de messagerie est vide</h1>
+                        <?php
+                    } else {
+                        foreach ($messages as $message) {
+                            $messageType = ($currentUser->id === $message->idUtilisateur) ? "send" : "received";
+                        ?>
+                            <div class="message <?= $messageType; ?>">
+                                <div class="user">
+                                    <p class="logo-name"><?= strtoupper(substr($message->pseudo, 0, 1)); ?></p>
+                                    <p class="username"><?= ucfirst($message->pseudo); ?></p>
+                                </div>
+                                <p class="message-text"><?= $message->message; ?></p>
+                                <section class="date-section">
+                                    <p class="date"><?= $message->dateEnvoie; ?></p>
+                                </section>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
+                </section>
+            </section>
         </section>
+
+        <form class="messages-form" action="../../src/servers/messages.php" method="POST">
+            <input type="hidden" name="id" value=<?= $currentUser->id; ?>>
+            <input type="text" name="text" id="text" required>
+            <input type="submit" name="send" value="Envoye">
+        </form>
     </section>
 </body>
 

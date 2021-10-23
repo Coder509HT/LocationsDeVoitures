@@ -28,7 +28,7 @@ if (isset($_POST['login'])) {
 }
 
 if ($response->status === 'success') {
-    $usersController->updateStatusUser(true, $responseConnect->user->id);
+    $usersController->updateUserConnect(true, NULL, $responseConnect->user->id);
     $_SESSION['user'] = $responseConnect->user;
     header('location: ../../web/pages/chat.php');
 } else {

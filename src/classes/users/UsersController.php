@@ -7,8 +7,8 @@ class UsersController extends UsersModel
         return $this->addUser($user->username, $user->password);
     }
 
-    public function updateStatusUser($status, $id)
+    public function updateUserConnect($status, $lastLogin, $id)
     {
-        $this->setUserStatus($status, $id);
+        $this->setUserConnectInfos($status, $lastLogin, $id);
     }
 }

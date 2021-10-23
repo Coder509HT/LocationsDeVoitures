@@ -16,7 +16,7 @@
 
         <div class="welcome-text-section">
             <div class="welcome-title-section">
-                <h1 class="title">Bienvenue sur AnyCar</h1>
+                <h1 class="title">Bienvenue sur <span>AnyCar</span></h1>
             </div>
 
             <p class="text">
