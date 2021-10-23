@@ -28,6 +28,7 @@
     flex-direction: column;
     flex: 1;
     height: 83vh;
+    padding: .5rem 2.5rem;
     overflow: hidden;
 }
 
@@ -47,9 +48,15 @@
     width: 50vw;
     outline: none;
     border: none;
-    padding: .5rem 1rem;
+    padding: .3rem 1rem;
+    font-size: 1rem;
     background-color: var(--secondary-color);
     color: var(--primary-color);
+    border-radius: 1rem 0 0 1rem;
+    -webkit-border-radius: 1rem 0 0 1rem;
+    -moz-border-radius: 1rem 0 0 1rem;
+    -ms-border-radius: 1rem 0 0 1rem;
+    -o-border-radius: 1rem 0 0 1rem;
 }
 
 .messages-form input[type="submit"]{
