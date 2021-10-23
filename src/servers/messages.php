@@ -10,7 +10,7 @@ if (isset($_POST['send'])) {
     $message = (object)[
         'idUtilisateur' => $_POST['id'],
         'message' => $_POST['text'],
-        'dateEnvoie' => $date->format('Y-m-d h:i:s')
+        'dateEnvoie' => $date->format('Y-m-d h:i:s A')
     ];
 
     $messagesController->createMessage($message);

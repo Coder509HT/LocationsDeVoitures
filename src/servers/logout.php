@@ -9,7 +9,7 @@ if (isset($_POST['logout'])) {
 
     $date = new DateTime('NOW', new DateTimeZone('America/New_York'));
 
-    $usersController->updateUserConnect(false, $date->format('Y-m-d h:i:s'), $_SESSION['user']->id);
+    $usersController->updateUserConnect(false, $date->format('Y-m-d h:i:s A'), $_SESSION['user']->id);
     unset($_SESSION['user']);
     session_destroy();
     header('location: ../../web/pages/accueil.php');
