@@ -12,9 +12,10 @@ $usersView = new UsersView();
 $messagesView = new MessagesView();
 
 $users = $usersView->usersList();
-$messages = $messagesView->messagesListe();
+$messages = $messagesView->messagesList();
 
 $currentUser = $_SESSION['user'];
+
 
 ?>
 
@@ -35,28 +36,57 @@ $currentUser = $_SESSION['user'];
     <section class="chat-section">
         <section class="chat-user-section">
             <!-- USSERS -->
-            <section class="users-list">
-                <?php
-                foreach ($users as $user) {
-                    if ($user->id !== $currentUser->id) {
-                        $status = ($user->login) ? "en ligne" : $user->lastLogin;
-                        $statusLight = ($user->login) ? "enligne" : "horsligne";
-                ?>
-                        <section class="user">
-                            <p class="logo-name"><?= strtoupper(substr($user->pseudo, 0, 1)); ?></p>
-                            <div class="username-section">
-                                <p class="username"><?= ucfirst($user->pseudo); ?></p>
-                                <section class="status-section">
-                                    <p class="status"><?= $status; ?></p>
-                                    <div class="status-light <?= $statusLight; ?>"></div>
-                                </section>
-                            </div>
-                        </section>
-                <?php
+            <?php
+            if (count($users) > 0) {
+            ?>
+                <section class="users-list">
+                    <?php
+
+                    $date = new DateTime('NOW', new DateTimeZone('America/New_York'));
+
+                    $currentDate = new DateTime($date->format('Y-m-d h:i:s'), new DateTimeZone('America/New_York'));
+
+
+                    foreach ($users as $user) {
+
+                        $dateDeconnectUser = new DateTime($user->lastLogin, new DateTimeZone('America/New_York'));
+
+                        $diff = $currentDate->diff($dateDeconnectUser);
+
+                        if ($diff->d > 1) {
+                            $dateDeconnect = $user->lastLogin;
+                        } elseif ($diff->d > 0) {
+                            $dateDeconnect = "hier " . $diff->h . ":" . $diff->i . ((!$diff->days) ? " AM " : " PM ");
+                        } elseif ($diff->h > 0) {
+                            $dateDeconnect = substr($user->lastLogin, 11, 5) . ((!$diff->days) ? " AM " : " PM ");
+                        } elseif ($diff->i > 0) {
+                            $dateDeconnect = "Il y a environ : " . $diff->i . " minutes.";
+                        } else {
+                            $dateDeconnect = "À l'instant.";
+                        }
+
+                        if ($user->id !== $currentUser->id) {
+                            $status = ($user->login) ? "en ligne" : $dateDeconnect;
+                            $statusLight = ($user->login) ? "enligne" : "horsligne";
+                    ?>
+                            <section class="user">
+                                <p class="logo-name"><?= strtoupper(substr($user->pseudo, 0, 1)); ?></p>
+                                <div class="username-section">
+                                    <p class="username"><?= ucfirst($user->pseudo); ?></p>
+                                    <section class="status-section">
+                                        <p class="status"><?= $status; ?></p>
+                                        <div class="status-light <?= $statusLight; ?>"></div>
+                                    </section>
+                                </div>
+                            </section>
+                    <?php
+                        }
                     }
-                }
-                ?>
-            </section>
+                    ?>
+                </section>
+            <?php
+            }
+            ?>
 
             <!-- MESSAGES -->
             <section class="messages-section">
@@ -67,7 +97,29 @@ $currentUser = $_SESSION['user'];
                         <h1 class="message-infos">La boîte de messagerie est vide</h1>
                         <?php
                     } else {
+
+                        $date = new DateTime('NOW', new DateTimeZone('America/New_York'));
+
+                        $currentDate = new DateTime($date->format('Y-m-d h:i:s'), new DateTimeZone('America/New_York'));
+
                         foreach ($messages as $message) {
+
+                            $dateSendMessage = new DateTime($message->dateEnvoie, new DateTimeZone('America/New_York'));
+
+                            $diff = $currentDate->diff($dateSendMessage);
+
+                            if ($diff->d > 1) {
+                                $dateEnvoie = $message->dateEnvoie;
+                            } elseif ($diff->d > 0) {
+                                $dateEnvoie = "hier " . substr($message->dateEnvoie, 11, 5) . (!($diff->days) ? " AM " : " PM ");
+                            } elseif ($diff->h > 0) {
+                                $dateEnvoie = substr($message->dateEnvoie, 11, 5) . (!($diff->days) ? " AM " : " PM ");
+                            } elseif ($diff->i > 0) {
+                                $dateEnvoie = "Il y a environ : " . $diff->i . " minutes.";
+                            } else {
+                                $dateEnvoie = "À l'instant.";
+                            }
+
                             $messageType = ($currentUser->id === $message->idUtilisateur) ? "send" : "received";
                         ?>
                             <div class="message <?= $messageType; ?>">
@@ -77,7 +129,7 @@ $currentUser = $_SESSION['user'];
                                 </div>
                                 <p class="message-text"><?= $message->message; ?></p>
                                 <section class="date-section">
-                                    <p class="date"><?= $message->dateEnvoie; ?></p>
+                                    <p class="date"><?= $dateEnvoie; ?></p>
                                 </section>
                             </div>
                     <?php

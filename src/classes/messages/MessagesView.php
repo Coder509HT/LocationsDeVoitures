@@ -2,7 +2,7 @@
 
 class MessagesView extends MessagesModel
 {
-    public function messagesListe()
+    public function messagesList()
     {
         return $this->getMessages();
     }
